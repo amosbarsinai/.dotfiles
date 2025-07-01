@@ -3,19 +3,19 @@ profile() {
     [[ "$1" == "--and-quit-after" ]] && exit
 }
 
-dj() {
+dot() {
+    nano ~/.dotfiles/$1
     thingy=`pwd`
     cd ~/.dotfiles
     git add .
     git commit -a
+    git push
     cd $thingy
 }
 
 alias pq='profile --and-quit-after'
 
-cb() {cargo build}
-
-poimt() {}
+alias cb='cargo build'
 
 k() {uname -r}
 
