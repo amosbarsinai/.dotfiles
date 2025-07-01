@@ -3,6 +3,14 @@ profile() {
     [[ "$1" == "--and-quit-after" ]] && exit
 }
 
+dj() {
+    thingy=`pwd`
+    cd ~/.dotfiles
+    git add .
+    git commit -a
+    cd $thingy
+}
+
 alias pq='profile --and-quit-after'
 
 cb() {cargo build}

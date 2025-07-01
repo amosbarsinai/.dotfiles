@@ -1,0 +1,3 @@
+up() {
+    sudo dnf upgrade
+}
