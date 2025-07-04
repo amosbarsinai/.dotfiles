@@ -1,7 +1,22 @@
+bindkey "^[[1;5C" forward-word
+bindkey "^[[5C"    forward-word
+bindkey "^[[1;5D" backward-word
+bindkey "^[[5D"    backward-word
+bindkey "^[[3~"    delete-char
+bindkey "^[[3;5~"  kill-word
+bindkey "^H"  backward-kill-word
+
 profile() {
     nano ~/.dotfiles/$USER.profile.zsh
     [[ "$1" == "--and-quit-after" ]] && exit
 }
+
+no.() {}
+
+newdot() {
+    nano ~/.dotfiles/$1
+}
+alias nd='newdot'
 
 dot() {
     nano ~/.dotfiles/$1
@@ -77,7 +92,7 @@ os() {
 ipa() { ip a; }
 
 ps1() {
-    nano ~/$USER.ps1.zsh
+    nano ~/.dotfiles/$USER.ps1.zsh
 }
 
 bashrc() { nano ~/.bashrc; }

@@ -1,0 +1,3 @@
+kyimdoomaniparpar() {
+    echo "eofhi"
+}
