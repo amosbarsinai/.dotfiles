@@ -1,16 +1,25 @@
-bindkey "^[[1;5C" forward-word
-bindkey "^[[5C"    forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "^[[5D"    backward-word
-bindkey "^[[3~"    delete-char
-bindkey "^[[3;5~"  kill-word
-bindkey "^H"  backward-kill-word
+setopt autocd
+
+alias b='run'
+
+kyb() {$EDITOR ~/.dotfiles/keybinds.zsh}
+
+stfu() { python -c "import os;os.system(\"echo no u\")"; }
+
+re() { [[ $1 = '--boot' ]] && reboot; }
+
+alias z='zsh'
+
+tag() {mv $1 _$1}
+
+alias bug='moon-buggy'
+
+alias c='clear;ls'
 
 profile() {
     nano ~/.dotfiles/$USER.profile.zsh
     [[ "$1" == "--and-quit-after" ]] && exit
 }
-
 no.() {}
 
 newdot() {
@@ -64,10 +73,6 @@ cmps() {
     gcc -static -nostdlib $1 -o $2
 }
 
-cct() {
-    clear;cat $1
-}
-
 alias lsu=lsusb;
 alias lsb=lsblk;
 
@@ -113,10 +118,6 @@ psx() {
     fi
 }
 
-clrls() { clear;ls; }
-
-cdls() { cd "$1";clrls; }
-
 cdto() {
     mkdir $1
     cd $1
@@ -131,8 +132,6 @@ alias y='yes'
 alias p='psx'
 
 alias rm='rm -i'
-
-echo "shell ready"
 
 [[ -f ~/.config/hyfetch.json ]] && hyfetch
 [[ -d ~/.cargo ]] && export RUST_BACKTRACE=1
